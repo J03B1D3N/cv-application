@@ -2,23 +2,39 @@ import React, {useState} from "react"
 
 export default function FirstName() {
 
-    let {inputValue, changeInputValue} = useState()
+    let [inputValue, setInputValue] = useState("First Name")
 
+        const [isOpened, setIsOpened] = useState(false);
+      
+        function toggle() {
+          setIsOpened(wasOpened => !wasOpened);
+          console.log(isOpened)
+        }
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        toggle()
+        return inputValue === "" ? setInputValue('First Name') : setInputValue(inputValue)
+    }
 
     function handleChange(e){
-        changeInputValue(inputValue)
+        setInputValue(e.target.value)
     }
 
 
     return (
         <div>
-            <form>
-                <input type="text" value={inputValue} onChange={handleChange} className="firstNameInput" display='none'></input>
+            {isOpened && (
+                <form onSubmit={handleSubmit}>
+                <input type="text" value={inputValue} onChange={handleChange} className="firstNameInput" placeholder="First Name"></input>
             </form>
-            <div className="firstName">
-                First Name
-            </div>
+            )}
+            {isOpened ? null :  <div className="firstName" onClick={toggle}>
+            {inputValue}
+            </div>}
+           
+            
+            
         </div>
     )
 

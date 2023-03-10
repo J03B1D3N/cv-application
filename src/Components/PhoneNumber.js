@@ -21,6 +21,8 @@ export default function PhoneNumber() {
         setInputValue(e.target.value)
     }
 
+    const handleFocus = (event) => event.target.select();
+
     const svg = 
     <svg
     width="18"
@@ -48,7 +50,7 @@ export default function PhoneNumber() {
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus type="text" value={inputValue} onChange={handleChange} className="firstNameInput" placeholder="First Name"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="phone input" placeholder="Phone Number"></input>
             </form>
             )}
             {isOpened ? null :  <div className="phoneNumber" onClick={toggle}>

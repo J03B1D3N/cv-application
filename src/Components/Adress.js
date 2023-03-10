@@ -21,12 +21,13 @@ export default function Adress() {
         setInputValue(e.target.value)
     }
 
+    const handleFocus = (event) => event.target.select();
 
     return (
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus type="text" value={inputValue} onChange={handleChange} className="firstNameInput" placeholder="First Name"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="adress input" placeholder="Adress"></input>
             </form>
             )}
             {isOpened ? null :  <div className="adress" onClick={toggle}>

@@ -20,13 +20,13 @@ export default function FirstName() {
     function handleChange(e){
         setInputValue(e.target.value)
     }
-
+    const handleFocus = (event) => event.target.select();
 
     return (
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus type="text" value={inputValue} onChange={handleChange} className="name" placeholder="First Name"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="name input" placeholder="First Name"></input>
             </form>
             )}
             {isOpened ? null :  <div className="name" onClick={toggle}>

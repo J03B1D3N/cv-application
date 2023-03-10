@@ -20,13 +20,13 @@ export default function CurrentRole() {
     function handleChange(e){
         setInputValue(e.target.value)
     }
-
+    const handleFocus = (event) => event.target.select();
 
     return (
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus type="text" value={inputValue} onChange={handleChange} className="currentRole" placeholder="First Name"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="currentRoleInput input" placeholder="Current Role"></input>
             </form>
             )}
             {isOpened ? null :  <div className="currentRole" onClick={toggle}>

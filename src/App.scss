@@ -3,7 +3,9 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-size: 1.2rem;
 }
+
 .App {
     display: flex;
     justify-content: center;
@@ -18,4 +20,33 @@
     background-color: rgb(160, 157, 157);
     height: 100vh;
     width: 50vw;
+    padding: 20px;
+}
+
+.titlesAndInformation {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+
+    .leftSide {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        .name {
+            height: fit-content;
+            font-size: 2.5rem;
+        }
+        .currentRole {
+            width: 100%;
+        }
+    }
+    
+    .rightSide {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: end;
+        .phoneNumber {
+        }
+    }
 }

@@ -50,7 +50,7 @@ export default function PhoneNumber() {
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="phone input" placeholder="Phone Number"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onBlur={handleSubmit} onChange={handleChange} className="phone input" placeholder="Phone Number"></input>
             </form>
             )}
             {isOpened ? null :  <div className="phoneNumber" onClick={toggle}>

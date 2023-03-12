@@ -26,7 +26,7 @@ export default function FirstName() {
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="name input" placeholder="First Name"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onBlur={handleSubmit} onChange={handleChange} className="name input" placeholder="First Name"></input>
             </form>
             )}
             {isOpened ? null :  <div className="name" onClick={toggle}>

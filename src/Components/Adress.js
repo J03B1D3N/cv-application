@@ -27,7 +27,7 @@ export default function Adress() {
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="adress input" placeholder="Adress"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onBlur={handleSubmit} onChange={handleChange} className="adress input" placeholder="Adress"></input>
             </form>
             )}
             {isOpened ? null :  <div className="adress" onClick={toggle}>

@@ -32,7 +32,7 @@ export default function Email() {
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="email input" placeholder="Email"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onBlur={handleSubmit} onChange={handleChange} className="email input" placeholder="Email"></input>
             </form>
             )}
             {isOpened ? null :  <div className="email" onClick={toggle}>

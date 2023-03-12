@@ -26,7 +26,7 @@ export default function CurrentRole() {
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="currentRoleInput input" placeholder="Current Role"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onBlur={handleSubmit} onChange={handleChange} className="currentRoleInput input" placeholder="Current Role"></input>
             </form>
             )}
             {isOpened ? null :  <div className="currentRole" onClick={toggle}>

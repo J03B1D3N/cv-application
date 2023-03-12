@@ -31,7 +31,7 @@ export default function LinkedIn() {
         <div>
             {isOpened && (
                 <form onSubmit={handleSubmit}>
-                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onChange={handleChange} className="linkedIn input" placeholder="Linked In"></input>
+                <input autoFocus onFocus={handleFocus} type="text" value={inputValue} onBlur={handleSubmit} onChange={handleChange} className="linkedIn input" placeholder="Linked In"></input>
             </form>
             )}
             {isOpened ? null :  <div className="linkedIn" onClick={toggle}>

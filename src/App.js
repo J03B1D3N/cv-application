@@ -1,12 +1,12 @@
 
 import './App.scss';
-import FirstName from './Components/FirstName';
-import LastName from './Components/LastName';
-import Adress from './Components/Adress';
-import PhoneNumber from './Components/PhoneNumber';
-import Email from './Components/Email';
-import LinkedIn from './Components/LinkedIn';
-import CurrentRole from './Components/CurrentRole';
+import FirstName from './Components/TitlesAndInformation/FirstName';
+import LastName from './Components/TitlesAndInformation/LastName';
+import Adress from './Components/TitlesAndInformation/Adress';
+import PhoneNumber from './Components/TitlesAndInformation/PhoneNumber';
+import Email from './Components/TitlesAndInformation/Email';
+import LinkedIn from './Components/TitlesAndInformation/LinkedIn';
+import CurrentRole from './Components/TitlesAndInformation/CurrentRole';
 
 
 function App() {

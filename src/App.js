@@ -7,6 +7,7 @@ import PhoneNumber from './Components/TitlesAndInformation/PhoneNumber';
 import Email from './Components/TitlesAndInformation/Email';
 import LinkedIn from './Components/TitlesAndInformation/LinkedIn';
 import CurrentRole from './Components/TitlesAndInformation/CurrentRole';
+import workExperience from './Components/WorkExperience/WorkExperience';
 
 
 function App() {
@@ -28,7 +29,9 @@ function App() {
 
         </div>
         <div className='experienceAndEducation'>
-
+          <div className='workExperience'>Work Experience
+            {workExperience()}
+          </div>
         </div>
 
       </div>

@@ -4,7 +4,7 @@ import displayWorkExperienceEntries from "./workExperienceEntryDisplay";
 
 
 
-let array= []
+ let array= []
 
 export default function WorkExperience() {
 
@@ -17,6 +17,7 @@ export default function WorkExperience() {
     const [city, setCity] = useState("")
     const [from, setFrom] = useState("")
     const [to, setTo] = useState("")
+    const [description, setDescription] = useState("")
 
 
 
@@ -46,6 +47,10 @@ export default function WorkExperience() {
         setTo(e.target.value)
     }
 
+    function handleDescriptionChange(e) {
+        setDescription(e.target.value)
+    }
+
     function HandleClick() {
         toggle()
     }
@@ -54,17 +59,27 @@ export default function WorkExperience() {
         e.preventDefault()
         array.push(createWorkExperienceEntry())
         toggle()
-       console.log(array)
+        setPosition("")
+        setCompany("")
+        setCity("")
+        setFrom("")
+        setTo("")
+        setDescription("")
+    }
+    function handleCancel (e) {
+        e.preventDefault();
+        toggle()
     }
 
     function createWorkExperienceEntry() {
-        let object = {position, company, city, from, to, id: uniqid()}
+        let object = {position, company, city, from, to, description, id: uniqid()}
         return object
     }
 
     return (
 
         <div>
+             {displayWorkExperienceEntries(array)}
             {isOpened ? <form  onSubmit={handleSubmit}>
                 <div className="WorkForm">
                     <input placeholder="Position" id="Position" onChange={handlePositionChange}></input>
@@ -72,12 +87,12 @@ export default function WorkExperience() {
                     <input placeholder="City" onChange={handleCityChange}></input>
                     <input placeholder="From" onChange={handleFromChange}></input>
                     <input placeholder="To" onChange={handleToChange}></input>
+                    <input placeholder="Short description" className="description" onChange={handleDescriptionChange}></input>
                     <button className="submit">Submit</button>
-                    <button className="cancel">Cancel</button>
+                    <button className="cancel" onClick={handleCancel}>Cancel</button>
                 </div>
             </form> :  
                 <div>
-                {displayWorkExperienceEntries(array)}
                 <button className="btn" onClick={HandleClick}>+ add</button>
                 </div>}
             

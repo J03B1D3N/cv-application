@@ -13,6 +13,8 @@ export default function displayWorkExperienceEntries(arrayOfObjects) {
                 <div><b>{obj.position === "" ? "N/A" : obj.position}</b></div>
                 <div>{obj.company === "" ? "N/A" : obj.company}, {obj.city === "" ? "N/A" : obj.city}</div>
                 <div>{obj.from === "" ? "N/A" : obj.from} - {obj.to === "" ? "N/A" : obj.to}</div>
+                <div className="jobDescription">{obj.description === "" ? "N/A" : obj.description}  </div>
+                <button className="deleteWorkExpEntry"></button>
             </div>
             )
         })

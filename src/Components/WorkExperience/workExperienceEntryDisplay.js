@@ -3,7 +3,7 @@ import WorkExperience from "./WorkExperience";
 
 
 
-export default function displayWorkExperienceEntries(arrayOfObjects) {
+export default function displayWorkExperienceEntries(arrayOfObjects, state) {
     if(arrayOfObjects == null) return
 
     function handleMouseOut (e) {
@@ -19,21 +19,36 @@ export default function displayWorkExperienceEntries(arrayOfObjects) {
         remove.remove()
     }
     
-    return (
-        arrayOfObjects.map((obj) => {
-            return (
-            <div className="WorkExperienceEntryParent">
-                <div key={obj.id} className="WorkExperienceEntry">
-                    <div><b>{obj.position === "" ? "N/A" : obj.position}</b></div>
-                    <div>{obj.company === "" ? "N/A" : obj.company}, {obj.city === "" ? "N/A" : obj.city}</div>
-                    <div>{obj.from === "" ? "N/A" : obj.from} - {obj.to === "" ? "N/A" : obj.to}</div>
-                    <div className="jobDescription">{obj.description === "" ? "N/A" : obj.description}  </div>
-                </div>
-                <button className="deleteWorkExpEntry" onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={deleteEntry}></button>
-            </div>
-            )
-        })
-    )
-    
 
+   
+    if(state === 'edit') {
+        return (
+            arrayOfObjects.map((obj) => {
+                return (
+                <div key={obj.id} className="WorkExperienceEntryParent">
+                    <div  className="WorkExperienceEntry">
+                        <div><b>{obj.position === "" ? "N/A" : obj.position}</b></div>
+                        <div>{obj.company === "" ? "N/A" : obj.company}, {obj.city === "" ? "N/A" : obj.city}</div>
+                        <div>{obj.from === "" ? "N/A" : obj.from} - {obj.to === "" ? "N/A" : obj.to}</div>
+                        <div className="jobDescription">{obj.description === "" ? "N/A" : obj.description}  </div>
+                    </div>
+                    <button className="deleteWorkExpEntry" onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={deleteEntry}></button>
+                </div>
+                )
+            })
+        )
+    } else return (
+            arrayOfObjects.map((obj) => {
+                return (
+                <div key={obj.id} className="WorkExperienceEntryParent">
+                    <div  className="WorkExperienceEntry">
+                        <div><b>{obj.position === "" ? "N/A" : obj.position}</b></div>
+                        <div>{obj.company === "" ? "N/A" : obj.company}, {obj.city === "" ? "N/A" : obj.city}</div>
+                        <div>{obj.from === "" ? "N/A" : obj.from} - {obj.to === "" ? "N/A" : obj.to}</div>
+                        <div className="jobDescription">{obj.description === "" ? "N/A" : obj.description}  </div>
+                    </div>
+                </div>
+                )
+            })
+        )
 }

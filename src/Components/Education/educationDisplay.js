@@ -1,4 +1,4 @@
-export default function displayEducationEntries(arrayOfObjects) {
+export default function displayEducationEntries(arrayOfObjects, state) {
     if(arrayOfObjects == null) return
 
     function handleMouseOut (e) {
@@ -13,22 +13,36 @@ export default function displayEducationEntries(arrayOfObjects) {
         const remove = e.target.parentNode
         remove.remove()
     }
-    
-    return (
+    if(state === 'edit') {
+        return (
+            arrayOfObjects.map((obj) => {
+                return (
+                <div key={obj.id} className="EducationEntryParent">
+                    <div className="EducationEntry">
+                        <div><b>{obj.degree === "" ? "N/A" : obj.degree}</b></div>
+                        <div>{obj.university === "" ? "N/A" : obj.university}, {obj.city === "" ? "N/A" : obj.city}</div>
+                        <div>{obj.from === "" ? "N/A" : obj.from} - {obj.to === "" ? "N/A" : obj.to}</div>
+                        <div className="Description">{obj.description === "" ? "N/A" : obj.description}  </div>
+                    </div>
+                    <button className="deleteEducationEntry" onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={deleteEntry}></button>
+                </div>
+                )
+            })
+        )
+    } else return (
         arrayOfObjects.map((obj) => {
             return (
-            <div className="EducationEntryParent">
-                <div key={obj.id} className="EducationEntry">
+            <div key={obj.id} className="EducationEntryParent">
+                <div  className="EducationEntry">
                     <div><b>{obj.degree === "" ? "N/A" : obj.degree}</b></div>
                     <div>{obj.university === "" ? "N/A" : obj.university}, {obj.city === "" ? "N/A" : obj.city}</div>
                     <div>{obj.from === "" ? "N/A" : obj.from} - {obj.to === "" ? "N/A" : obj.to}</div>
                     <div className="Description">{obj.description === "" ? "N/A" : obj.description}  </div>
                 </div>
-                <button className="deleteEducationEntry" onMouseOver={handleHover} onMouseOut={handleMouseOut} onClick={deleteEntry}></button>
             </div>
             )
         })
-    )
+        )
     
 
 }

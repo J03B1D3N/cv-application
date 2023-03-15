@@ -11,12 +11,31 @@ p {
 
 
 .App {
+    position: relative;
     display: flex;
     justify-content: center;
     padding: 20px 0px;
     height: 100vh;
     width: 100vw;
     background-color: black;
+    .buttons {
+        position: absolute;
+        left: 50px;
+        bottom: 50%;
+        transform: translate(50%, 50%);
+        display: flex;
+        flex-direction: column;
+        .button {
+            padding: 10px;
+            margin: 5px;
+        }
+        .display {
+            background-color: skyblue;
+        }
+        .pdf {
+            background-color: rgb(220, 64, 64);
+        }
+    }
 }
 
 .page {

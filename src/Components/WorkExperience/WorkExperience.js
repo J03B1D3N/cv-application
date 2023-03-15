@@ -6,7 +6,7 @@ import displayWorkExperienceEntries from "./workExperienceEntryDisplay";
 
  let array= []
 
-export default function WorkExperience() {
+export default function WorkExperience(state) {
 
    
 
@@ -76,10 +76,11 @@ export default function WorkExperience() {
         return object
     }
 
-    return (
 
-        <div>
-             {displayWorkExperienceEntries(array)}
+    if(state === 'edit') {
+        return (
+            <div>
+             {displayWorkExperienceEntries(array, 'edit')}
             {isOpened ? <form  onSubmit={handleSubmit}>
                 <div className="WorkForm">
                     <input placeholder="Position" id="Position" onChange={handlePositionChange}></input>
@@ -98,6 +99,11 @@ export default function WorkExperience() {
             
            
         </div>
-        
+        )
+    } else return (
+        displayWorkExperienceEntries(array)
     )
+
+
+
 }

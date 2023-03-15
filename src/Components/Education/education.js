@@ -11,7 +11,7 @@ import displayEducationEntries from "./educationDisplay";
 
 let array= []
 
-export default function Education() {
+export default function Education(state) {
 
    
 
@@ -81,10 +81,16 @@ export default function Education() {
         return object
     }
 
-    return (
 
-        <div>
-             {displayEducationEntries(array)}
+
+    if(state === 'edit') {
+        return (
+            <div>
+            
+          
+
+            {displayEducationEntries(array, 'edit')}
+            
             {isOpened ? <form  onSubmit={handleSubmit}>
                 <div className="educationForm">
                     <input placeholder="University" id="university" onChange={handleUniversityChange}></input>
@@ -103,6 +109,17 @@ export default function Education() {
             
            
         </div>
-        
+        )
+    } else return (
+
+         displayEducationEntries(array)
     )
+
+
+
+
+
+
+
+    
 }

@@ -18,7 +18,7 @@
 
 .page {
     overflow:auto;
-    background-color: rgb(160, 157, 157);
+    background-color: #fff;
     height: fit-content;
     width: 42.5%;
     padding: 20px;
@@ -87,29 +87,53 @@
                 background-color: rgb(209, 89, 89);
             }
         }
-        .WorkExperienceEntry {
-            border-left: 3px solid black;
-            padding-left: 5px;
-            margin-bottom: 10px;
+        .WorkExperienceEntryParent{
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            .jobDescription {
-               overflow-wrap: break-word;
-               overflow: auto;
-                
+            justify-content: center;
+            position: relative;
+
+
+            .WorkExperienceEntry {
+                width: 100%;
+                border-left: 3px solid black;
+                padding-left: 5px;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .jobDescription {
+                   overflow-wrap: break-word;
+                   overflow: auto;
+                    
+                }
+               
             }
             .deleteWorkExpEntry {
+                top: 50%;
+                right: 20px;
                 height: 2rem;
                 width: 2rem;
-                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position:absolute;
+                transform: translate(-50%, -50%);
+            }
+            
+            .deleteWorkExpEntry:before, .deleteWorkExpEntry:after {
                 content: "";
-
+                position: absolute;
+                width: 9%;
+                height: 90%;
+                background-color: black;
             }
             .deleteWorkExpEntry:before {
-                
-                
+                transform: rotate(45deg);
+            }
+            .deleteWorkExpEntry:after{
+                transform: rotate(-45deg);
             }
         }
-    }
+        }
+        
 }

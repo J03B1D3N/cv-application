@@ -10,6 +10,10 @@ import LinkedIn from './Components/TitlesAndInformation/LinkedIn';
 import CurrentRole from './Components/TitlesAndInformation/CurrentRole';
 import workExperience from './Components/WorkExperience/WorkExperience';
 import Education from './Components/Education/education';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import html2pdf from 'html2pdf.js';
+
 
 
 function App() {
@@ -24,9 +28,45 @@ function App() {
     setState('display')
   }
 
-  function handlePdf () {
-    return
-  }
+
+  // function handlePdf(e) {
+  //   var element = e.target.parentNode.parentNode.children[1]
+  //   var opt = {
+  //     margin:       1,
+  //     filename:     'myfile.pdf',
+  //     image:        { type: 'jpeg', quality: 0.98 },
+  //     html2canvas:  { scale: 5 },
+  //     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  //   };
+
+  //   html2pdf().from(element).set(opt).save();
+  // }
+
+  async function handlePdf (e) {
+
+    await html2canvas(e.target.parentNode.parentNode.children[1], {
+      useCORS: true,
+    allowTaint: true,
+    scrollY: -window.scrollY,
+  }).then(canvas => {
+    const image = canvas.toDataURL('image/jpeg', 1.0);
+    const doc = new jsPDF('p', 'px', 'a4');
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    const widthRatio = pageWidth / canvas.width;
+    const heightRatio = pageHeight / canvas.height;
+    const ratio = widthRatio > heightRatio ? heightRatio : widthRatio;
+
+    const canvasWidth = canvas.width * ratio;
+    const canvasHeight = canvas.height * ratio;
+
+    const marginX = (pageWidth - canvasWidth) / 2;
+
+    doc.addImage(image, 'JPEG', marginX, 0, canvasWidth, canvasHeight);
+    doc.output('dataurlnewwindow');
+  });
+};
 
 
 

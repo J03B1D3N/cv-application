@@ -8,6 +8,7 @@ import Email from './Components/TitlesAndInformation/Email';
 import LinkedIn from './Components/TitlesAndInformation/LinkedIn';
 import CurrentRole from './Components/TitlesAndInformation/CurrentRole';
 import workExperience from './Components/WorkExperience/WorkExperience';
+import Education from './Components/Education/education';
 
 
 function App() {
@@ -29,8 +30,11 @@ function App() {
 
         </div>
         <div className='experienceAndEducation'>
-          <div className='workExperience'>Work Experience
+          <div className='workExperience'><p>Work Experience</p>
             {workExperience()}
+          </div>
+          <div className='education'><p>Education</p>
+            {Education()}
           </div>
         </div>
 

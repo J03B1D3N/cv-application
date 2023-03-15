@@ -5,6 +5,9 @@
     overflow-x: hidden;
     font-size: 1.2rem;
 }
+p {
+    font-size: 1.5rem;
+}
 
 
 .App {
@@ -88,6 +91,7 @@
             }
         }
         .WorkExperienceEntryParent{
+            margin-top: 5px;
             display: flex;
             justify-content: center;
             position: relative;
@@ -134,6 +138,81 @@
                 transform: rotate(-45deg);
             }
         }
+        }
+
+
+        .education {
+            margin-top: 5px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .btn {
+                padding: 0px 5px;
+                width: fit-content;  
+                align-self: center;
+                margin-top: 5px;
+            }
+            .educationForm {
+                border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+                .submit {
+                    background-color: rgb(91, 212, 97);
+                }
+                .cancel {
+                    background-color: rgb(209, 89, 89);
+                }
+            }
+            .EducationEntryParent {
+                margin-top: 5px;
+                display: flex;
+                justify-content: center;
+                position: relative;  
+                .EducationEntry {
+                    width: 100%;
+                    border-left: 3px solid black;
+                    padding-left: 5px;
+                    margin-bottom: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .Description {
+                       overflow-wrap: break-word;
+                       overflow: auto;
+                        
+                    }
+                    
+                   
+                }
+                
+            }
+            .deleteEducationEntry {
+                top: 50%;
+                right: 20px;
+                height: 2rem;
+                width: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position:absolute;
+                transform: translate(-50%, -50%);
+            }
+            
+            .deleteEducationEntry:before, .deleteEducationEntry:after {
+                content: "";
+                position: absolute;
+                width: 9%;
+                height: 90%;
+                background-color: black;
+            }
+            .deleteEducationEntry:before {
+                transform: rotate(45deg);
+            }
+            .deleteEducationEntry:after{
+                transform: rotate(-45deg);
+            }
         }
         
 }

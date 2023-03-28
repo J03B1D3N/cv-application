@@ -2,6 +2,7 @@
   "name": "cv-application",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://j03b1d3n.github.io/cv-application/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -15,8 +16,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.58.3",
     "uniqid": "^5.4.0",
-    "web-vitals": "^2.1.4",
-    "homepage": "https://j03b1d3n.github.io/cv-application/"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "publish": "gh-pages -d build",

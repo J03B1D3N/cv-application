@@ -7,7 +7,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "gh-pages": "^5.0.0",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.9.0",
     "jspdf": "^2.5.1",
@@ -19,7 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "publish": "gh-pages -d build",
+   "predeploy": "npm run build",
++   "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
